@@ -1,4 +1,43 @@
-.App {
+.favourites {
+  float:  right;
+  text-align: right;
+  list-style-type: none;
+  margin-right: 50px;
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+.individual {
+  align-items: center;
+  text-align: center;
+  display: block;
+  margin-right: 400px;
+  margin-left: 100px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border: 2px solid black;
+}
+
+h2 {
+  align-items: center;
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.container {
+  margin-left: 50px;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +74,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

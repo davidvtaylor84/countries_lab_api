@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import IndividualItem from '../components/IndividualItem';
 import TotalPopulationNumbers from "../components/TotalPopulationNumbers";
 import CountrySelector from "../components/CountrySelector";
+import FavouriteCountries from "../components/FavouriteCountry";
 
 const CountryContainer = ()=>{
 
@@ -29,6 +30,15 @@ const CountryContainer = ()=>{
    
     const thisCountry = countries.find(country => country.cca2 === selectedCountry)
 
+    const handleFavouriteToggle = (cca2) => {
+        const updatedCountries = countries.map((country) => {
+          return country.cca2 === cca2
+            ? {...country, isFavourite: !country.isFavourite}
+            : country
+        })
+        setCountries(updatedCountries)
+      }
+
     // const onCountrySelect = cca2 => {
     //     setSelectedCountry(cca2)
     //   }
@@ -36,10 +46,14 @@ const CountryContainer = ()=>{
 
     return (
         <>
+        <div className="container">
+        <h1>Countries of the World</h1>
         <TotalPopulationNumbers countries={countries}/>
         <CountrySelector country={selectedCountry} countries={countries} onCountrySelect={onCountrySelect}/>
-        <IndividualItem selectedCountry={thisCountry} />
+        <FavouriteCountries onCountrySelect={onCountrySelect} countries={countries}/>
+        <IndividualItem selectedCountry={thisCountry} onFavouriteToggle={handleFavouriteToggle}/>
         {/* <CountryList countries={countries} onCountryClick={onCountryClick}/> */}
+        </div>
         </>
     )
 }
